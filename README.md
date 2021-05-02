@@ -18,7 +18,7 @@
 また、不安や心配に思った事など、面と向かっては相談しずらいことなどは、別に質問フォームから匿名で投稿でき、その投稿に対して周りからアドバイスをもらえる。
 
 ## 設計書
-<...>
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1DVOyyei0gtZY9hzjtolh2pcTvVcPOBsfkSjq7LTOFCw/edit?usp=sharing
@@ -32,4 +32,3 @@ https://docs.google.com/spreadsheets/d/1DVOyyei0gtZY9hzjtolh2pcTvVcPOBsfkSjq7LTO
 
 ## 使用素材
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
