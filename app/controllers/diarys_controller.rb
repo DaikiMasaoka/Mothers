@@ -5,16 +5,24 @@ class DiarysController < ApplicationController
   end
 
   def show
-
+    @diary = Diary.find(params[:id])
+    @diary_comment = DiaryComment.new
   end
 
   def create
     @diary = Diary.new(diary_params)
+    @diary.user_id = current_user.id
     @diary.save
     redirect_to diarys_path
   end
 
   def edit
+  end
+  
+  def destroy
+    @diary = Diary.find(params[:id])
+    @diary.destroy
+    redirect_to diarys_path
   end
 
   private

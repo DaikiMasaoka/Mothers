@@ -11,8 +11,11 @@
 
 <% @diarys.each do |diary| %>
 <div>
+  <%= link_to diary_path(diary.id) do %>
   <%= attachment_image_tag diary, :image %>
+  <% end %>
   <p>ショップ名：<%= diary.title %></p>
   <p>説明：<%= diary.body %></p>
+  <p><%= link_to "#{diary.diary_comments.count} コメント", diary_path(diary.id) %></p>
 </div>
 <% end %>
