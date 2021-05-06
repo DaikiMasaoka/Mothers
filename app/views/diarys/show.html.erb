@@ -22,13 +22,13 @@
   <% if @diary.liked_by?(current_user) %>
     <p>
       <%= link_to diary_likes_path(@diary), method: :delete do %>
-        ♥<%= @diary.likes.count %> いいね
+        ♥<%= @diary.likes.count %>
       <% end %>
     </p>
     <% else %>
     <p>
       <%= link_to diary_likes_path(@diary), method: :post do %>
-        ♡<%= @diary.likes.count %> いいね
+        ♡<%= @diary.likes.count %>
       <% end %>
     </p>
   <% end %>
