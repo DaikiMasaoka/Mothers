@@ -1,7 +1,7 @@
 class DiarysController < ApplicationController
   def index
     @diary = Diary.new
-    @diarys = Diary.all
+    @diaries = Diary.all
   end
 
   def show
@@ -17,11 +17,18 @@ class DiarysController < ApplicationController
   end
 
   def edit
+    @diary = Diary.find(params[:id])
   end
 
   def destroy
     @diary = Diary.find(params[:id])
     @diary.destroy
+    redirect_to diarys_path
+  end
+  
+  def update
+    diary = Diary.find(params[:id])
+    diary.update(diary_params)
     redirect_to diarys_path
   end
 

@@ -1,11 +1,15 @@
 <div class="post-body">
-  <%= attachment_image_tag @diary, :image %>
-  <p>ショップ名：<%= @diary.title %></p>
+    <% @diary.diary_images.each do |image| %>
+    <%= attachment_image_tag image, :image, class: "default_image" %>
+    <% end %>
+
+  <p>タイトル：<%= @diary.title %></p>
   <p>説明：<%= @diary.body %></p>
   <p>ユーザーネーム：<%= @diary.user.name %></p>
   <p>投稿日時：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>
   <% if @diary.user == current_user %>
     <%= link_to "削除", diary_path(@diary), method: :delete %>
+    <%= link_to "編集", edit_diary_path(@diary) %>
   <% end %>
 </div>
 <div class="comments">
