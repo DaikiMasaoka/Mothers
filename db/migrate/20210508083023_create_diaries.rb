@@ -4,7 +4,6 @@ class CreateDiaries < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.text :title
       t.text :body
-      t.string :image_id
 
       t.timestamps
     end

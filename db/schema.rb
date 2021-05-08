@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_023623) do
+ActiveRecord::Schema.define(version: 2021_05_08_083302) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "trouble_id"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2021_05_03_023623) do
     t.integer "user_id"
     t.text "title"
     t.text "body"
-    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +32,13 @@ ActiveRecord::Schema.define(version: 2021_05_03_023623) do
     t.integer "user_id"
     t.integer "diary_id"
     t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "diary_images", force: :cascade do |t|
+    t.integer "diary_id"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
