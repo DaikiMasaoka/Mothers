@@ -18,7 +18,7 @@ class DiarysController < ApplicationController
 
   def edit
   end
-  
+
   def destroy
     @diary = Diary.find(params[:id])
     @diary.destroy
@@ -27,6 +27,6 @@ class DiarysController < ApplicationController
 
   private
   def diary_params
-    params.require(:diary).permit(:title, :body, :image)
+    params.require(:diary).permit(:title, :body, diary_images_images: [])
   end
 end
