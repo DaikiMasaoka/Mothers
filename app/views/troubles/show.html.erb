@@ -1,2 +1,28 @@
-<h1>Troubles#show</h1>
-<p>Find me in app/views/troubles/show.html.erb</p>
+<div class="post-body">
+  <p>タイトル：<%= @trouble.title %></p>
+  <p>説明：<%= @trouble.body %></p>
+  <p>ユーザーネーム：<%= @trouble.user.name %></p>
+  <p>投稿日時：<%= @trouble.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @trouble.user == current_user %>
+    <%= link_to "削除", trouble_path(@trouble), method: :delete %>
+    <%= link_to "編集", edit_trouble_path(@trouble) %>
+  <% end %>
+</div>
+<div class="comments">
+<p>コメント件数：<%= @trouble.answers.count %></p>
+<% @trouble.answers.each do |answer| %>
+  <%= answer.user.name %>
+  <%= answer.created_at.strftime('%Y/%m/%d') %>
+  <%= answer.comment %>
+  <% if answer.user == current_user %>
+  <div class="comment-delete">
+    <%= link_to "削除", trouble_answer_path(answer.trouble, answer), method: :delete %>
+  </div>
+  <% end %>
+<% end %>
+<div class="new-comment">
+<%= form_with(model:[@trouble, @answer], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>

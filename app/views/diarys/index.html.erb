@@ -1,5 +1,5 @@
 <h1>マタニティダイアリ</h1>
-<%= form_with model: @diary, url:'/diarys', local:true do |f| %>
+<%= form_with model:@diary, url:'/diarys', local:true do |f| %>
   <h4>画像</h4>
   <%= f.attachment_field :diary_images_images, multiple: true %>
   <h4>題名</h4>
@@ -22,6 +22,6 @@
   <p>ショップ名：<%= diary.title %></p>
   <% end %>
   <p>説明：<%= diary.body %></p>
-  <p><%= link_to "#{diary.diary_comments.count} コメント", diary_path(diary.id) %></p>
+  <p><%= link_to "コメント数: #{diary.diary_comments.count}", diary_path(diary.id) %></p>
 </div>
 <% end %>
