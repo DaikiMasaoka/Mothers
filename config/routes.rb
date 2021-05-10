@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :answers
   end
   resources :diarys do
-    resources :diary_comments
+    resources :diary_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
   resources :users
-  
+
 end

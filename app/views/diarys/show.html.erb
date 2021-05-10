@@ -2,7 +2,7 @@
   <table class='table'>
   <tr id="diary_<%= @diary.id %>">
     <% @diary.diary_images.each do |image| %>
-    <%= attachment_image_tag image, :image, class: "default_image" %>
+    <%= attachment_image_tag image, :image, :fill, 400, 300, format: 'jpeg', fallback: "no_image.jpg" %>
     <% end %>
 
   <p>タイトル：<%= @diary.title %></p>
@@ -15,16 +15,10 @@
   <% end %>
 </div>
 <div class="comments">
-<p>コメント件数：<%= @diary.diary_comments.count %></p>
-<% @diary.diary_comments.each do |diary_comment| %>
-  <%= diary_comment.user.name %>
-  <%= diary_comment.created_at.strftime('%Y/%m/%d') %><%= diary_comment.comment %>
-  <% if diary_comment.user == current_user %>
-  <div class="comment-delete">
-    <%= link_to "削除", diary_diary_comment_path(diary_comment.diary, diary_comment), method: :delete %>
-  </div>
-  <% end %>
-<% end %>
+<p class="comments-count">コメント数: <%= @diary.diary_comments.count %></p>
+<div class="diary_comments">
+  <%= render 'diary_comments/index', diary: @diary %>
+</div>
 
 <td class="like-btn"><%= render "likes/like-btn", diary: @diary %></td>
 </tr>
@@ -32,7 +26,7 @@
 
 </div>
 <div class="new-comment">
-<%= form_with(model:[@diary, @diary_comment], local: true) do |f| %>
+<%= form_with model:[@diary, @diary_comment] do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
   <%= f.submit "送信する" %>
 <% end %>

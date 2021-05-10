@@ -1,0 +1,9 @@
+<% @diary.diary_comments.each do |diary_comment| %>
+  <%= diary_comment.user.name %>
+  <%= diary_comment.created_at.strftime('%Y/%m/%d') %><%= diary_comment.comment %>
+  <% if diary_comment.user == current_user %>
+  <div class="comment-delete">
+    <%= link_to "削除", diary_diary_comment_path(diary_comment.diary, diary_comment), method: :delete %>
+  </div>
+  <% end %>
+<% end %>
