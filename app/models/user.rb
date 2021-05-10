@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :diary_comments, dependent: :destroy
   has_many :troubles, dependent: :destroy
   has_many :answers, dependent: :destroy
+  attachment :profile_image
 end
