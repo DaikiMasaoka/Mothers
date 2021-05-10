@@ -1,15 +1,13 @@
 class LikesController < ApplicationController
   def create
-    diary = Diary.find(params[:diary_id])
-    like = current_user.likes.new(diary_id: diary.id)
+    @diary = Diary.find(params[:diary_id])
+    like = @diary.likes.new(user_id: current_user.id)
     like.save
-    redirect_to diary_path(diary)
   end
 
   def destroy
-    diary = Diary.find(params[:diary_id])
-    like = current_user.likes.find_by(diary_id: diary.id)
+    @diary = Diary.find(params[:diary_id])
+    like = @diary.likes.find_by(user_id: current_user.id)
     like.destroy
-    redirect_to diary_path(diary)
   end
 end
