@@ -16,3 +16,16 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+ footer {
+  width: 100%;
+  padding: 25px 0;
+  position: absolute;
+  bottom: 0;
+}
+
+.footertext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
