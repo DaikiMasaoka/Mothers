@@ -17,4 +17,33 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+// 下記記入でJavaがリロードなしで起動
+document.addEventListener("turbolinks:load"
+, function () {
 
+$(function() {
+  $('#slider').slick({
+      dots: true, //スライドの下にドットのナビゲーションを表示
+      autoplay: false, //自動再生
+  });
+});
+
+$(function() {
+  var $body  = $('body');
+  var $btn   = $('.toggle_btn');
+  var $mask  = $('#mask');
+  var open   = 'open'; // class
+  // menu open close
+  $btn.on( 'click', function() {
+    if ( ! $body.hasClass( open ) ) {
+      $body.addClass( open );
+    } else {
+      $body.removeClass( open );
+    }
+  });
+  // mask close
+  $mask.on('click', function() {
+    $body.removeClass( open );
+  });
+} )();
+})

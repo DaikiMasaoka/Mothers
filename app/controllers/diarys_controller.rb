@@ -25,7 +25,7 @@ class DiarysController < ApplicationController
     @diary.destroy
     redirect_to diarys_path
   end
-  
+
   def update
     diary = Diary.find(params[:id])
     diary.update(diary_params)

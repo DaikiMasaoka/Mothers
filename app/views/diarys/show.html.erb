@@ -1,9 +1,9 @@
 <div class="post-body">
-  <table class='table'>
-  <tr id="diary_<%= @diary.id %>">
+  <div id="slider">
     <% @diary.diary_images.each do |image| %>
-    <%= attachment_image_tag image, :image, :fill, 400, 300, format: 'jpeg', fallback: "no_image.jpg" %>
+    <%= attachment_image_tag image, :image, :fill, 1200, 800, format: 'jpeg', fallback: "no_image.jpg" %>
     <% end %>
+  </div>
 
   <p>タイトル：<%= @diary.title %></p>
   <p>説明：<%= @diary.body %></p>
@@ -19,10 +19,10 @@
 <div class="diary_comments">
   <%= render 'diary_comments/index', diary: @diary %>
 </div>
-
-<td class="like-btn"><%= render "likes/like-btn", diary: @diary %></td>
-</tr>
-</table>
+<div id="diary_<%= @diary.id %>">
+<p class="like-btn"><%= render "likes/like-btn", diary: @diary %></p>
+</div>
+xs
 
 </div>
 <div class="new-comment">
@@ -31,3 +31,4 @@
   <%= f.submit "送信する" %>
 <% end %>
 </div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
