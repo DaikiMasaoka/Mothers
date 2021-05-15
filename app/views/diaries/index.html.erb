@@ -1,9 +1,9 @@
 <div class="containar">
   <div class="row">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <div class="col-5 mx-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-center bg-light p-4 mb-0">マタニティダイアリ</h5>
       <div class="form-body p-4">
-        <%= form_with model:@diary, url:'/diarys', local:true do |f| %>
+        <%= form_with model:@diary, url:'/diaries', local:true do |f| %>
           <%= f.attachment_field :diary_images_images, multiple: true %>
           <!--multiple: trueで複数枚選択可能に-->
           <div class="input-group mb-3 mt-4">
@@ -18,12 +18,12 @@
   </div>
 </div>
 
-<div class="card-list-containar py-5 ">
+<div class="card-list-containar py-5">
   <% @diaries.each do |diary| %>
   <div class="card col-2 mx-auto mt-2 shadow-lg">
-    <%= link_to(diary_path(diary.id), class:"text-dark") do %>
+    <%= link_to(diary_path(diary.id), data: {"turbolinks" => false}) do %>
       <% diary.diary_images.first(1).each do |image| %>
-      <%= attachment_image_tag image, :image, class:"card-img-top"; %>
+      <%= attachment_image_tag image, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '200x200', class:"card-img-top" %>
       <% end %>
       <% end %>
     <div class="body">
@@ -33,13 +33,13 @@
         </div>
         <div class="offset-2 col-8">
           <p class="title">
-            <%= link_to(diary_path(diary.id), class:"text-dark") do %>
+            <%= link_to(diary_path(diary.id), data: {"turbolinks" => false}, class:"text-dark") do %>
               <span><%= diary.title %></span>
             <% end %>
           </p>
-          <p class="text">説明：<%= diary.body %></p>
+          <p class="text">説明：<%= simple_format diary.body %></p>
           <span><%= diary.user.name %> ｜ </span>
-          <span><%= link_to "#{diary.diary_comments.count} コメント", diary_path(diary.id), class:"text-dark" %></span>
+          <span><%= link_to "#{diary.diary_comments.count} コメント", diary_path(diary.id), data: {"turbolinks" => false}, class:"text-dark" %></span>
         </div>
       </div>
     </div>

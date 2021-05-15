@@ -1,4 +1,4 @@
-class DiarysController < ApplicationController
+class DiariesController < ApplicationController
   def index
     @diary = Diary.new
     @diaries = Diary.all
@@ -13,7 +13,7 @@ class DiarysController < ApplicationController
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
     @diary.save
-    redirect_to diarys_path
+    redirect_to diaries_path
   end
 
   def edit
@@ -23,13 +23,13 @@ class DiarysController < ApplicationController
   def destroy
     @diary = Diary.find(params[:id])
     @diary.destroy
-    redirect_to diarys_path
+    redirect_to diaries_path
   end
 
   def update
     diary = Diary.find(params[:id])
     diary.update(diary_params)
-    redirect_to diarys_path
+    redirect_to diaries_path
   end
 
   private

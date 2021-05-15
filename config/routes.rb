@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :troubles do
     resources :answers
   end
-  resources :diarys do
+  resources :diaries do
     resources :diary_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end

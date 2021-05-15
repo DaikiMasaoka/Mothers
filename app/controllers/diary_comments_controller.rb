@@ -2,16 +2,16 @@ class DiaryCommentsController < ApplicationController
 
   def create
     @diary = Diary.find(params[:diary_id])
-    diary_comment = DiaryComment.new(diary_comment_params)
-    diary_comment.diary_id = @diary.id
-    diary_comment.user_id = current_user.id
-    diary_comment.save
-    redirect_to diary_path(diary)
+    @diary_comment = DiaryComment.new(diary_comment_params)
+    @diary_comment.diary_id = @diary.id
+    @diary_comment.user_id = current_user.id
+    @diary_comment.save
   end
 
   def destroy
-    DiaryComment.find_by(id: params[:id], diary_id: params[:diary_id]).destroy
-    redirect_to diary_path(params[:diary_id])
+    @diary = Diary.find(params[:diary_id])
+    diary_comment = @diary.diary_comments.find(params[:id])
+    diary_comment.destroy
   end
 
   private

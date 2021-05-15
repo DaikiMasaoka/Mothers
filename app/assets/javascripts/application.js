@@ -18,9 +18,7 @@
 //= require popper
 //= require bootstrap-sprockets
 // 下記記入でJavaがリロードなしで起動
-document.addEventListener("turbolinks:load"
-, function () {
-
+$(document).on("turbolinks:load", function () {
 $(function() {
   $('#slider').slick({
       dots: true, //スライドの下にドットのナビゲーションを表示

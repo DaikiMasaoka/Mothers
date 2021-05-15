@@ -1,0 +1,62 @@
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<div class="containar">
+  <div class="row">
+    <div class="col-4 mx-auto mt-3">
+      <div id="slider">
+       <% @diary.diary_images.each do |image| %>
+         <%= attachment_image_tag image, :image, :fill, 1200, 800, format: 'jpeg', fallback: "no_image.jpg" %>
+       <% end %>
+       </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-7 mx-auto">
+      <table class="table">
+        <tr>
+          <th>タイトル</th>
+          <th><%= @diary.title %></th>
+        </tr>
+        <tr>
+          <th>説明</th>
+          <th><%= simple_format @diary.body %></th>
+        </tr>
+        <tr>
+          <th>ユーザーネーム</th>
+          <th><%= @diary.user.name %></th>
+        </tr>
+        <tr>
+          <th>投稿日時</th>
+          <th><%= @diary.created_at.strftime('%Y/%m/%d') %></th>
+        </tr>
+        <tr id="diary_<%= @diary.id %>">
+          <th class="comments-count">コメント数: <%= @diary.diary_comments.count %></th>
+          <th class="like-btn"><%= render "likes/like-btn", diary: @diary %></th>
+        </tr>
+        <% if @diary.user == current_user %>
+        <tr>
+          <th>
+            <%= link_to "削除", diary_path(@diary), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_diary_#{@diary.id}"%>
+            <%= link_to "編集", edit_diary_path(@diary), class: "btn btn-sm btn-success edit_diary_#{@diary.id}" %>
+          </th>
+          <th></th>
+        </tr>
+        <% else %>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <% end %>
+      </table>
+      <table class="diary_comments">
+        <%= render 'diary_comments/index', diary: @diary %>
+      </table>
+      <div class="new-comment">
+        <%= form_with model:[@diary,@diary_comment] do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %></br>
+        <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
