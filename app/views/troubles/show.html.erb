@@ -1,7 +1,6 @@
 <div class="post-body">
   <p>タイトル：<%= @trouble.title %></p>
   <p>説明：<%= @trouble.body %></p>
-  <p>ユーザーネーム：<%= @trouble.user.name %></p>
   <p>投稿日時：<%= @trouble.created_at.strftime('%Y/%m/%d') %></p>
   <% if @trouble.user == current_user %>
     <%= link_to "削除", trouble_path(@trouble), method: :delete %>

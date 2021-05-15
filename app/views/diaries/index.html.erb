@@ -23,7 +23,7 @@
   <div class="card mt-4  mx-auto shadow-lg flex_item" style="width: 18rem;">
     <%= link_to(diary_path(diary.id), data: {"turbolinks" => false}) do %>
       <% diary.diary_images.first(1).each do |image| %>
-      <%= attachment_image_tag image, :image, :fill, 200, 150, fallback: "no_image.jpg", class:"card-img-top" %>
+      <%= attachment_image_tag image, :image, :fill, 200, 150, class:"card-img-top" %>
       <% end %>
       <% end %>
     <div class="card-body">

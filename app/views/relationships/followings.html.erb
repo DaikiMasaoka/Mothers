@@ -1,22 +1,28 @@
-
 <% if @users.exists? %>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, user_path(user) %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="container">
+    <div class="row">
+      <div class="col-4 mx-auto">
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>name</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user.name, user_path(user) %></td>
+              <td>フォロー数: <%= user.followings.count %></td>
+              <td>フォロワー数: <%= user.followers.count %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+   </div>
 <% else %>
   <p>ユーザーはいません</p>
 <% end %>
