@@ -1,7 +1,16 @@
 // Place all the styles related to the Diarys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.card-list-containar {
+.flex_box {
     display: flex;
     flex-wrap: wrap;
+}
+.flex_item {
+    margin: 10px;
+}
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
