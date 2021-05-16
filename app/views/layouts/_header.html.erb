@@ -5,14 +5,15 @@
     <div class="inner">
       <ul>
          <% if user_signed_in? %>
+          <li><%= link_to 'トップページ',root_path, data: {"turbolinks" => false} %></li>
           <li><%= link_to 'マイページ',user_path(current_user), data: {"turbolinks" => false} %></li>
           <li><%= link_to 'マタニティダイアリ',diaries_path, data: {"turbolinks" => false} %></li>
           <li><%= link_to 'お悩み相談',troubles_path, data: {"turbolinks" => false} %></li>
-          <li><%= link_to 'logout', destroy_user_session_path, method: :delete, data: {"turbolinks" => false} %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {"turbolinks" => false} %></li>
         <% else %>
-          <li><%= link_to 'Home',root_path, data: {"turbolinks" => false} %></li>
-          <li><%= link_to 'sign up', new_user_registration_path, data: {"turbolinks" => false} %></li>
-          <li><%= link_to 'login', new_user_session_path, data: {"turbolinks" => false} %></li>
+          <li><%= link_to 'トップページ',root_path, data: {"turbolinks" => false} %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, data: {"turbolinks" => false} %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, data: {"turbolinks" => false} %></li>
         <% end %>
       </ul>
     </div>

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-5 mx-auto">
       <table class='table'>
-        <tr><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+        <tr><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"mb-1 rounded-circle";  %></tr>
         <tr>
 	        <th>name</th>
 	        <th><%= @user.name %></th>
@@ -20,7 +20,7 @@
           <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
         </tr>
       </table>
-      
+
 
 <div class='row'>
   <% if current_user != @user %>

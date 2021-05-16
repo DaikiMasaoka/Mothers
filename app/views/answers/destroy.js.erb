@@ -1,0 +1,3 @@
+$("#trouble_<%= @trouble.id %> .comments-count").html("コメント数: <%= @trouble.answers.count %>");
+$(".answers").html("<%= j(render 'answers/index', trouble: @trouble) %>");
+$("#answer_comment").val("");

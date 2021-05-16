@@ -38,7 +38,6 @@
             <%= link_to "削除", diary_path(@diary), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_diary_#{@diary.id}"%>
             <%= link_to "編集", edit_diary_path(@diary), class: "btn btn-sm btn-success edit_diary_#{@diary.id}" %>
           </th>
-          <th></th>
         </tr>
         <% else %>
         <tr>

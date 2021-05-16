@@ -2,10 +2,10 @@ class DiaryCommentsController < ApplicationController
 
   def create
     @diary = Diary.find(params[:diary_id])
-    @diary_comment = DiaryComment.new(diary_comment_params)
-    @diary_comment.diary_id = @diary.id
-    @diary_comment.user_id = current_user.id
-    @diary_comment.save
+    diary_comment = DiaryComment.new(diary_comment_params)
+    diary_comment.diary_id = @diary.id
+    diary_comment.user_id = current_user.id
+    diary_comment.save
   end
 
   def destroy

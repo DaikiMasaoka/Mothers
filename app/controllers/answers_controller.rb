@@ -1,15 +1,16 @@
 class AnswersController < ApplicationController
 	def create
-    trouble = Trouble.find(params[:trouble_id])
-    comment = current_user.answers.new(answer_params)
-    comment.trouble_id = trouble.id
-    comment.save
-    redirect_to trouble_path(trouble)
+    @trouble = Trouble.find(params[:trouble_id])
+    answer = Answer.new(answer_params)
+    answer.trouble_id = @trouble.id
+    answer.user_id = current_user.id
+    answer.save
 	end
 
   def destroy
-    Answer.find_by(id: params[:id], trouble_id: params[:trouble_id]).destroy
-    redirect_to trouble_path(params[:trouble_id])
+    @trouble = Trouble.find(params[:trouble_id])
+    answer = @trouble.answers.find(params[:id])
+    answer.destroy
   end
 
   private

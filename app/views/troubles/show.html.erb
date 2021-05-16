@@ -1,27 +1,46 @@
-<div class="post-body">
-  <p>タイトル：<%= @trouble.title %></p>
-  <p>説明：<%= @trouble.body %></p>
-  <p>投稿日時：<%= @trouble.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @trouble.user == current_user %>
-    <%= link_to "削除", trouble_path(@trouble), method: :delete %>
-    <%= link_to "編集", edit_trouble_path(@trouble) %>
-  <% end %>
-</div>
-<div class="comments">
-<p>コメント件数：<%= @trouble.answers.count %></p>
-<% @trouble.answers.each do |answer| %>
-  <%= answer.user.name %>
-  <%= answer.created_at.strftime('%Y/%m/%d') %>
-  <%= answer.comment %>
-  <% if answer.user == current_user %>
-  <div class="comment-delete">
-    <%= link_to "削除", trouble_answer_path(answer.trouble, answer), method: :delete %>
+<div class="containar">
+  <div class="row mt-3">
+    <div class="col-7 mx-auto">
+      <table class="table">
+        <tr>
+          <th>タイトル</th>
+          <th><%= @trouble.title %></th>
+        </tr>
+        <tr>
+          <th>内容</th>
+          <th><%= simple_format @trouble.body %></th>
+        </tr>
+        <tr>
+          <th>投稿日時</th>
+          <th><%= @trouble.created_at.strftime('%Y/%m/%d') %></th>
+        </tr>
+        <tr id="trouble_<%= @trouble.id %>">
+          <th class="comments-count">コメント数: <%= @trouble.answers.count %></th>
+          <th></th>
+        </tr>
+        <% if @trouble.user == current_user %>
+        <tr>
+          <th>
+            <%= link_to "削除", trouble_path(@trouble), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_diary_#{@trouble.id}"%>
+            <%= link_to "編集", edit_trouble_path(@trouble), class: "btn btn-sm btn-success edit_trouble_#{@trouble.id}" %>
+          </th>
+        </tr>
+        <% else %>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <% end %>
+      </table>
+      <table class="answers">
+        <%= render 'answers/index', trouble: @trouble %>
+      </table>
+      <div class="new-comment">
+        <%= form_with model:[@trouble, @answer] do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %></br>
+        <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <% end %>
-<% end %>
-<div class="new-comment">
-<%= form_with(model:[@trouble, @answer], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
 </div>

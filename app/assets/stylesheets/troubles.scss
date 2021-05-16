@@ -1,3 +1,26 @@
 // Place all the styles related to the Troubles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// CSSで文字を省略
+.troble-title {
+	display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.troble-text {
+	display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.trouble-box {
+	display: flex;
+  flex-wrap: wrap;
+}
+
+.troble-item {
+	margin: 10px;
+}
