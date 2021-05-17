@@ -1,5 +1,12 @@
 <div class="containar">
   <div class="row">
+    <div class="col-6 mx-auto">
+      <p class="trouble-message text-center">
+        匿名でなんでも相談してみませんか？
+      </p>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-5 mx-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-center bg-light p-4 mb-0">お悩み相談</h5>
       <div class="form-body p-4">
@@ -19,12 +26,12 @@
       <% @troubles.each do |trouble| %>
       <div class="card shadow-lg trouble-item" style="width: 20rem;">
         <div class="card-body">
-          <h5 class="card-title trouble-title">
+          <h5 class="card-title">
             <%= link_to trouble_path(trouble.id), class:"text-dark" do %>
-              <%= trouble.title %>
+              <%= truncate(trouble.title, :length => 15) %>
             <% end %>
           </h5>
-          <p class="card-text trouble-text"><%= trouble.body %></p>
+          <p class="card-text"><%= truncate(trouble.body, :length => 18) %></p>
           <div class="card-footer"><%= link_to "コメント数: #{trouble.answers.count}", trouble_path(trouble.id), class:"text-dark" %></td></div>
         </div>
       </div>

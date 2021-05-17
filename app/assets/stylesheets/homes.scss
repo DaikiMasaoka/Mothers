@@ -1,11 +1,9 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.top_text {
-  font-size: 25px;
-  height: auto;
+.top-text {
+  font-size: 20px;
   line-height: 50px;
-  width: auto;
   padding-top: 250px;
   text-shadow: 1px 2px 3px #808080;
 }
@@ -19,7 +17,7 @@ section {
   max-width: 300px;
   margin: 0 auto;
 }
-a.btn_05 {
+a.btn_1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +33,7 @@ a.btn_05 {
   transition-duration: 0.3s;
   position: relative;
 }
-a.btn_05:before {
+a.btn_1:before {
   content: "";
   position: absolute;
   top: 0;
@@ -46,7 +44,7 @@ a.btn_05:before {
   border-width: 30px 40px 0 0;
   border-color: #ffffff transparent transparent transparent;
 }
-a.btn_05:after {
+a.btn_1:after {
   content: "";
   position: absolute;
   top: -6px;
@@ -59,15 +57,15 @@ a.btn_05:after {
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.15);
   transform: rotate(16deg);
 }
-a.btn_05:hover {
+a.btn_1:hover {
   background-color: #e6de6b;
 }
-a.btn_05 span {
+a.btn_1 span {
   position: relative;
   padding-left: 16px;
   letter-spacing: 0.05em;
 }
-a.btn_05 span:before {
+a.btn_1 span:before {
   content: '';
   width: 6px;
   height: 6px;

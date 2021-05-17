@@ -1,7 +1,15 @@
 <div class="container">
   <div class="row">
+    <div class="col-7 mx-auto">
+      <p class="diary-message text-center">
+        妊娠、出産、育児の事や</br>
+        おすすめのおもちゃ、料理なんでも共有しましょう
+      </p>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-7 mx-auto shadow-lg rounded px-0 my-5">
-      <h5 class="text-center bg-light p-4 mb-0">マタニティダイアリ</h5>
+      <h5 class="text-center bg-light p-4 mb-0">新規投稿</h5>
       <div class="form-body p-4">
         <%= form_with model:@diary, url:'/diaries', local:true do |f| %>
           <%= f.attachment_field :diary_images_images, multiple: true %>
@@ -16,6 +24,7 @@
       </div>
     </div>
   </div>
+
   <div class="row mt-5">
     <div class="col-11 mx-auto flex_box">
       <% @diaries.each do |diary| %>
