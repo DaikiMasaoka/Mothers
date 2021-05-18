@@ -8,15 +8,15 @@
 			</p>
     </div>
     <div class="col-8">
-    	<img src="assets/family.jpg" class="img-fluid">
+      <%= image_tag asset_path('family.jpg'), {class: "img-fluid"} %>
     </div>
   </div>
   <div class="row">
   	<div class="col-4 mt-5 mx-auto">
-  		<a href="/users/sign_up" class="btn_1"><span>新規登録</span></a>
+  		<%= link_to("新規登録", new_user_registration_path, {class: "btn_1"}) %>
   	</div>
   	<div class="col-4 mt-5 mx-auto">
-  		<a href="/users/sign_in" class="btn_1"><span>ログイン</span></a>
+  		<%= link_to("ログイン", new_user_session_path, {class: "btn_1"}) %>
   	</div>
   </div>
 </div>
