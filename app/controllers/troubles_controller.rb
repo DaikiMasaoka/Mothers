@@ -1,4 +1,5 @@
 class TroublesController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
     @trouble = Trouble.new
     @troubles = Trouble.all
@@ -12,8 +13,12 @@ class TroublesController < ApplicationController
   def create
     @trouble = Trouble.new(trouble_params)
     @trouble.user_id = current_user.id
-    @trouble.save
-    redirect_to troubles_path
+    if @trouble.save
+       redirect_to troubles_path
+    else
+      @troubles= Trouble.all
+      render 'index'
+    end
   end
 
   def edit
@@ -21,9 +26,12 @@ class TroublesController < ApplicationController
   end
 
   def update
-    trouble = Trouble.find(params[:id])
-    trouble.update(trouble_params)
-    redirect_to troubles_path
+    @trouble = Trouble.find(params[:id])
+    if @trouble.update(trouble_params)
+       redirect_to troubles_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy

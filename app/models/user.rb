@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
   
+  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
+  # 2文字以上20文字以下で一意性
+  
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end

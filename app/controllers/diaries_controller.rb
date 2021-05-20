@@ -1,4 +1,5 @@
 class DiariesController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
     @diary = Diary.new
     @diaries = Diary.all
@@ -12,8 +13,12 @@ class DiariesController < ApplicationController
   def create
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
-    @diary.save
-    redirect_to diaries_path
+    if @diary.save
+       redirect_to diaries_path
+    else
+      @diaries=Diary.all
+      render 'index'
+    end
   end
 
   def edit
@@ -27,9 +32,13 @@ class DiariesController < ApplicationController
   end
 
   def update
-    diary = Diary.find(params[:id])
-    diary.update(diary_params)
-    redirect_to diaries_path
+    @diary = Diary.find(params[:id])
+    if @diary.update(diary_params)
+       redirect_to diaries_path
+    else
+      render 'edit'
+    end
+
   end
 
   private

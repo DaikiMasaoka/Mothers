@@ -1,6 +1,7 @@
 <div class="containar">
   <div class="row">
     <div class="col-5 mx-auto shadow-lg rounded px-0 my-5">
+      <%= render 'layouts/errors', obj: @trouble %>
       <h5 class="text-center bg-light p-4 mb-0">相談内容編集</h5>
       <div class="form-body p-4">
         <%= form_with model:@trouble, local:true do |f| %>
