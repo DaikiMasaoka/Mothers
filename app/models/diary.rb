@@ -7,8 +7,12 @@ class Diary < ApplicationRecord
 	validates :title, presence: true
 	validates :body, presence: true
 	# タイトルボディの内容が空で無いこと
-	
+
 def liked_by?(user)
     likes.where(user_id: user.id).exists?
+end
+
+def self.search(search, word)
+	@diary = Diary.where("title LIKE? OR body LIKE?","%#{word}%","%#{word}%")
 end
 end
