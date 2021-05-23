@@ -13,7 +13,7 @@
           <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= link_to user.name, user_path(user) %></td>
+              <td><%= link_to user.name, user_path(user), class:"text-dark" %></td>
               <td>フォロー数: <%= user.followings.count %></td>
               <td>フォロワー数: <%= user.followers.count %></td>
             </tr>
@@ -24,5 +24,11 @@
     </div>
    </div>
 <% else %>
-  <p>ユーザーはいません</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-5 mx-auto text-center">
+      <p>フォローされていません</p>
+    </div>
+  </div>
+</div>
 <% end %>

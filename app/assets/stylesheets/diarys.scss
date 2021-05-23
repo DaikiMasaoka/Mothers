@@ -17,8 +17,11 @@
 }
 .diary-message {
     font-size: 25px;
-    height: auto;
     line-height: 50px;
     padding-top: 100px;
+    color: #fff;
     text-shadow: 1px 2px 3px #808080;
+    background-image: url(diary.jpg);
+    background-size: 1100px 500px;
+    height: 300px;
 }

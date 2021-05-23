@@ -1,14 +1,13 @@
-<div class="containar">
-  <div class="row">
-    <div class="col-6 mx-auto">
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 mx-auto">
       <p class="trouble-message text-center">
-        匿名でなんでも相談してみませんか？
+        匿名でなんでも相談しましょう
       </p>
     </div>
   </div>
   <div class="row">
-    <div class="col-5 mx-auto shadow-lg rounded px-0 my-5">
-      <%= render 'layouts/errors', obj: @trouble %>
+    <div class="col-7 mx-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-center bg-light p-4 mb-0">お悩み相談</h5>
       <div class="form-body p-4">
         <%= form_with model:@trouble, local:true do |f| %>
@@ -23,7 +22,7 @@
     </div>
   </div>
   <div class="row mt-3">
-    <div class="col-8 mx-auto trouble-box">
+    <div class="col-11 mx-auto trouble-box">
       <% @troubles.each do |trouble| %>
       <div class="card shadow-lg trouble-item" style="width: 20rem;">
         <div class="card-body">

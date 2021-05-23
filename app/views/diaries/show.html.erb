@@ -1,10 +1,10 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<div class="containar">
-  <div class="row">
-    <div class="col-4 mx-auto mt-3">
+<div class="container">
+  <div class="row my-5">
+    <div class="col-7 mx-auto">
       <div id="slider">
        <% @diary.diary_images.each do |image| %>
-         <%= attachment_image_tag image, :image, :fill, 1200, 800, format: 'jpeg', fallback: "no_image.jpg" %>
+         <%= attachment_image_tag image, :image, :fill, 1200, 800, format: 'jpeg' %>
        <% end %>
        </div>
     </div>
@@ -22,7 +22,7 @@
         </tr>
         <tr>
           <th>ユーザーネーム</th>
-          <th><%= @diary.user.name %></th>
+          <th><%= link_to user_path(@diary.user), class:"text-dark" do %><%= @diary.user.name %><% end %></th>
         </tr>
         <tr>
           <th>投稿日時</th>
@@ -52,7 +52,7 @@
       <div class="new-comment">
         <%= form_with model:[@diary,@diary_comment] do |f| %>
         <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %></br>
-        <%= f.submit "送信する" %>
+        <%= f.submit "コメントする" %>
         <% end %>
       </div>
     </div>

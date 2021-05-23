@@ -31,4 +31,13 @@
 
 </div>
 
+<div class="col-md-2 float-right mt-3">
+    <% if user_signed_in? %>
+    <%= form_tag(search_path, method: :get) do %>
+      <%= text_field_tag (:word) %>
+      <%= submit_tag "検索" %>
+    <% end %>
+    <% end %>
+</div>
+
 </header>
