@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-12 mx-auto">
       <p class="diary-message text-center">
         妊娠、出産、育児の事や</br>
@@ -7,8 +7,8 @@
       </p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-7 mx-auto shadow-lg rounded px-0 my-5">
+  <div class="row my-5">
+    <div class="col-7 mx-auto shadow px-0">
       <h5 class="text-center bg-light p-4 mb-0">新規投稿</h5>
       <div class="form-body p-4">
         <%= form_with model:@diary, url:'/diaries', local:true do |f| %>
@@ -32,12 +32,12 @@
         <% if diary.diary_images.present? %>
         <%= link_to(diary_path(diary.id), data: {"turbolinks" => false}) do %>
           <% diary.diary_images.first(1).each do |image| %>
-          <%= attachment_image_tag image, :image, :fill, 200, 150, class:"card-img-top" %>
+          <%= attachment_image_tag image, :image, :fill, 1200, 800, class:"card-img-top" %>
           <% end %>
           <% end %>
         <% else %>
           <%= link_to(diary_path(diary.id), data: {"turbolinks" => false}) do %>
-          <%= image_tag 'No_image.png', size: '300x210', class:"card-img-top" %>
+          <%= image_tag 'No_image.png', size: '300x190', class:"card-img-top" %>
           <% end %>
         <% end %>
         <div class="card-body">
