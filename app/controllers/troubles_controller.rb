@@ -1,5 +1,4 @@
 class TroublesController < ApplicationController
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
     @trouble = Trouble.new
     @troubles = Trouble.all
@@ -35,7 +34,7 @@ class TroublesController < ApplicationController
   end
 
   def destroy
-    @trouble =Trouble.find(params[:id])
+    @trouble = Trouble.find(params[:id])
     @trouble.destroy
     redirect_to troubles_path
   end

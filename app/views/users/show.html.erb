@@ -8,15 +8,15 @@
 	        <th><%= @user.name %></th>
         </tr>
         <tr>
-	        <th>introduction</th>
+	        <th>プロフィール</th>
 	        <th><%= @user.introduction %></th>
         </tr>
         <tr>
-          <th>follows</th>
+          <th>フォロー中</th>
           <th><%= link_to @user.followings.count, user_followings_path(@user),class:"text-dark" %></th>
         </tr>
         <tr>
-          <th>followers</th>
+          <th>フォロワー</th>
           <th><%= link_to @user.followers.count, user_followers_path(@user),class:"text-dark" %></th>
         </tr>
       </table>

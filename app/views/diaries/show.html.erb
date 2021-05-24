@@ -3,9 +3,13 @@
   <div class="row my-5">
     <div class="col-7 mx-auto">
       <div id="slider">
-       <% @diary.diary_images.each do |image| %>
-         <%= attachment_image_tag image, :image, :fill, 1200, 800, format: 'jpeg' %>
-       <% end %>
+      <% if @diary.diary_images.present? %>
+        <% @diary.diary_images.each do |image| %>
+          <%= attachment_image_tag image, :image, :fill, 1200, 800, format: 'jpeg' %>
+        <% end %>
+      <% else %>
+        <%= image_tag 'No_image.png' %>
+      <% end %>
        </div>
     </div>
   </div>
@@ -26,7 +30,7 @@
         </tr>
         <tr>
           <th>投稿日時</th>
-          <th><%= @diary.created_at.strftime('%Y/%m/%d') %></th>
+          <th><%= @diary.created_at.strftime('%Y/%m/%d %H:%M') %></th>
         </tr>
         <tr id="diary_<%= @diary.id %>">
           <th class="comments-count">コメント数: <%= @diary.diary_comments.count %></th>
