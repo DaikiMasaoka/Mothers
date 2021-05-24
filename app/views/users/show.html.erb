@@ -35,9 +35,15 @@
     <div class="col-11 mx-auto flex_box">
       <% @diaries.each do |diary| %>
       <div class="card shadow-lg flex_item" style="width: 18rem;">
+        <% if diary.diary_images.present? %>
         <%= link_to(diary_path(diary.id), data: {"turbolinks" => false}) do %>
           <% diary.diary_images.first(1).each do |image| %>
-          <%= attachment_image_tag image, :image, :fill, 200, 150, fallback: "no_image.jpg", class:"card-img-top" %>
+          <%= attachment_image_tag image, :image, :fill, 1200, 800, class:"card-img-top" %>
+          <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to(diary_path(diary.id), data: {"turbolinks" => false}) do %>
+          <%= image_tag 'No_image.png', size: '300x190', class:"card-img-top" %>
           <% end %>
         <% end %>
         <div class="card-body">

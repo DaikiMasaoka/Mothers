@@ -43,5 +43,5 @@ $(function() {
   $mask.on('click', function() {
     $body.removeClass( open );
   });
-} )();
+});
 })
