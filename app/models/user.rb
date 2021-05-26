@@ -33,4 +33,13 @@ class User < ApplicationRecord
   def self.search(search, word)
 		@user = User.where("name LIKE? OR introduction LIKE?","%#{word}%","%#{word}%")
   end
+
+  # ゲストログイン
+  def self.guest
+  find_or_create_by!(email: 'guest@example.com') do |user|
+    user.password = SecureRandom.urlsafe_base64
+    user.password_confirmation = user.password
+    user.name = 'ゲスト'
+  end
+  end
 end

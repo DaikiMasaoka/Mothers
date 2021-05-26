@@ -11,6 +11,8 @@
       <%= image_tag 'family.jpg', {class: "img-fluid"} %>
     </div>
   </div>
+  <% if user_signed_in? %>
+  <% else %>
   <div class="row">
   	<div class="col-4 mt-5 mx-auto">
   		<%= link_to("新規登録", new_user_registration_path, {class: "btn_1"}) %>
@@ -19,4 +21,5 @@
   		<%= link_to("ログイン", new_user_session_path, {class: "btn_1"}) %>
   	</div>
   </div>
+  <% end %>
 </div>

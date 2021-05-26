@@ -37,8 +37,8 @@
       </table>
       <div class="new-comment">
         <%= form_with model:[@trouble, @answer] do |f| %>
-        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %></br>
-        <%= f.submit "送信する" %>
+        <%= f.text_area :comment, rows:'2',placeholder: "コメントをここに" %></br>
+        <%= f.submit "コメントする" %>
         <% end %>
       </div>
     </div>
