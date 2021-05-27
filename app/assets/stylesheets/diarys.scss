@@ -1,6 +1,10 @@
 // Place all the styles related to the Diarys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+slider {
+    height: 400px;
+    width: 300;
+}
 .flex_box {
     display: flex;
     flex-wrap: wrap;
