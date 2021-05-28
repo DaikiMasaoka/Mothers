@@ -174,3 +174,16 @@ main {
 .open main {
   margin-left: 300px;
 }
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 200px;
+}
+ footer {
+   height: 50px;
+   width: 100%;
+   position: absolute;
+   bottom: 0;
+   z-index: 1;
+ }

@@ -34,7 +34,10 @@ slider {
   position: fixed;
   right: 20px;
   bottom: 20px;
+  z-index: 2;
+  // 前後指定
 }
 #back img {
   width: 50px;
+
 }
