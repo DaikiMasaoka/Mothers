@@ -17,6 +17,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+/* global $*/
 // 下記記入でJavaがリロードなしで起動
 $(document).on("turbolinks:load", function () {
 $(function() {
@@ -42,6 +44,15 @@ $(function() {
   // mask close
   $mask.on('click', function() {
     $body.removeClass( open );
+  });
+});
+
+$(function() {
+  $('#back a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
   });
 });
 })

@@ -54,6 +54,7 @@
       <% end %>
     </div>
 	</div>
+	<% if @user.present? %>
 	<div class="row mt-5">
 	  <div class="col-7 mx-auto">
 	    <table class='table'>
@@ -88,6 +89,8 @@
           <% end %>
         </tbody>
       </table>
+      <% else %>
+      <% end %>
 	  </div>
 	</div>
 </div>

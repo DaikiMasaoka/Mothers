@@ -1,7 +1,7 @@
 class TroublesController < ApplicationController
   def index
     @trouble = Trouble.new
-    @troubles = Trouble.all
+    @troubles = Trouble.all.order("id DESC")
   end
 
   def show

@@ -2,8 +2,10 @@ class DiariesController < ApplicationController
 
   def index
     @diary = Diary.new
-    @diaries = Diary.all
+    @diaries = Diary.all.order("id DESC")
+    # order("id DESK")で投稿されたら一番上に
   end
+  
 
   def show
     @diary = Diary.find(params[:id])
