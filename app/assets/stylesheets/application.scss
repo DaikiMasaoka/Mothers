@@ -175,6 +175,21 @@ main {
   margin-left: 300px;
 }
 
+.logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.search {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+main {
+  padding-top: 100px;
+}
+
 .wrapper {
   min-height: 100vh;
   position: relative;
