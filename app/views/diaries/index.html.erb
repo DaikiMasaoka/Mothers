@@ -57,6 +57,8 @@
               <span><%= diary.user.name %> ｜ </span>
               <span><%= link_to "#{diary.diary_comments.count} コメント", diary_path(diary.id), data: {"turbolinks" => false}, class:"text-dark" %></span>
               <p>♡<%= diary.likes.count %></p>
+              <p>Ai判断</p>
+             <%= render "diaries/score", diary: diary %>
             </div>
           </div>
         </div>

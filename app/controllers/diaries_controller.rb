@@ -5,7 +5,7 @@ class DiariesController < ApplicationController
     @diaries = Diary.all.order("id DESC")
     # order("id DESK")で投稿されたら一番上に
   end
-  
+
 
   def show
     @diary = Diary.find(params[:id])
@@ -15,6 +15,7 @@ class DiariesController < ApplicationController
   def create
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
+    @diary.score = Language.get_data(diary_params[:body])
     if @diary.save
        redirect_to diaries_path
     else
@@ -35,6 +36,7 @@ class DiariesController < ApplicationController
 
   def update
     @diary = Diary.find(params[:id])
+    @diary.score = Language.get_data(diary_params[:body])
     if @diary.update(diary_params)
        redirect_to diaries_path
     else

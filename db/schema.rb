@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_064456) do
+ActiveRecord::Schema.define(version: 2021_06_02_012556) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "trouble_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_05_15_064456) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "score", precision: 5, scale: 3, default: "0.0"
   end
 
   create_table "diary_comments", force: :cascade do |t|

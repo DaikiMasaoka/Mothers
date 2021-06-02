@@ -32,6 +32,10 @@
           <th>投稿日時</th>
           <th><%= @diary.created_at.strftime('%Y/%m/%d %H:%M') %></th>
         </tr>
+        <tr>
+          <th>Ai内容判断</th>
+          <th><%= render "diaries/score", diary: @diary %></th>
+        </tr>
         <tr id="diary_<%= @diary.id %>">
           <th class="comments-count">コメント数: <%= @diary.diary_comments.count %></th>
           <th class="like-btn"><%= render "likes/like-btn", diary: @diary %></th>
