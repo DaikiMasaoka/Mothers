@@ -6,7 +6,7 @@
   </div>
 	<div class="row mt-5">
 		<div class="col-11 mx-auto flex_box">
-      <% @diary.each do |diary| %>
+      <% @diaries.each do |diary| %>
       <div class="card shadow-lg flex_item" style="width: 18rem;">
         <%= link_to(diary_path(diary.id), data: {"turbolinks" => false}) do %>
           <% diary.diary_images.first(1).each do |image| %>
@@ -39,7 +39,7 @@
 	</div>
 	<div class="row mt-5">
 		<div class="col-11 mx-auto trouble-box">
-      <% @trouble.each do |trouble| %>
+      <% @troubles.each do |trouble| %>
       <div class="card shadow-lg trouble-item" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">
@@ -54,7 +54,7 @@
       <% end %>
     </div>
 	</div>
-	<% if @user.present? %>
+	<% if @users.present? %>
 	<div class="row mt-5">
 	  <div class="col-7 mx-auto">
 	    <table class='table'>
@@ -66,7 +66,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @user.each do |user| %>
+          <% @users.each do |user| %>
           <tr>
             <td>
               <%= link_to user_path(user) do%>

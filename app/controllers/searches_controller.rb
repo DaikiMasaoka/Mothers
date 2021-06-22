@@ -3,8 +3,8 @@ class SearchesController < ApplicationController
 		word = params[:word]
 		search = params[:search]
 
-		@user = User.search(search,word)
-		@diary = Diary.search(search,word)
-		@trouble = Trouble.search(search,word)
+		@users = User.search(search,word)
+		@diaries = Diary.search(search,word)
+		@troubles = Trouble.search(search,word)
 	end
 end
