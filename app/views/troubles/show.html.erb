@@ -19,17 +19,12 @@
           <th></th>
         </tr>
         <% if @trouble.user == current_user %>
-        <tr>
-          <th>
-            <%= link_to "削除", trouble_path(@trouble), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_diary_#{@trouble.id}"%>
-            <%= link_to "編集", edit_trouble_path(@trouble), class: "btn btn-sm btn-success edit_trouble_#{@trouble.id}" %>
-          </th>
-        </tr>
-        <% else %>
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
+          <tr>
+            <th>
+              <%= link_to "削除", trouble_path(@trouble), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_diary_#{@trouble.id}"%>
+              <%= link_to "編集", edit_trouble_path(@trouble), class: "btn btn-sm btn-success edit_trouble_#{@trouble.id}" %>
+            </th>
+          </tr>
         <% end %>
       </table>
     </div>
