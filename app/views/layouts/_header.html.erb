@@ -6,7 +6,7 @@
          <% if user_signed_in? %>
           <li><%= link_to 'トップページ',root_path, data: {"turbolinks" => false} %></li>
           <li><%= link_to 'マイページ',user_path(current_user), data: {"turbolinks" => false} %></li>
-          <li><%= link_to 'マタニティダイアリ',diaries_path, data: {"turbolinks" => false} %></li>
+          <li><%= link_to 'ダイアリ',diaries_path, data: {"turbolinks" => false} %></li>
           <li><%= link_to 'お悩み相談',troubles_path, data: {"turbolinks" => false} %></li>
           <li><%= link_to 'Mothersとは',home_about_path, data: {"turbolinks" => false} %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {"turbolinks" => false} %></li>
